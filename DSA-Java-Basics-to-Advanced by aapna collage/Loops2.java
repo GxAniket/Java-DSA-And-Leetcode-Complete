@@ -1,16 +1,19 @@
-//wap to print Table 
+//wap to print sum of first n natural number
 import java.util.*;
 
-public class Loops2 {
+public class Loops {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a number: ");
         int n = sc.nextInt();
 
-        for (int i = 1; i <= 11; i++) {
+        int sum = 0;
+        for (int i = 1; i <= n; i++) {
+            sum = sum + i;
+            // sum=+1;
         }
 
-        System.out.println(i*n);
+        System.out.println("Sum = " + sum);
         sc.close();
     }
 }
