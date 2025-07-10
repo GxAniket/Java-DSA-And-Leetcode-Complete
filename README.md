@@ -15,8 +15,7 @@ It includes both **college-specific questions** and **self-practice exercises**,
 Includes questions from:
 - 🏛️ Uttaranchal University assignments
 - 📚 Lab exercises
-- 📖 Previous year exam questions
-- Apna collage - Youtube.
+- Apna collage - Youtube
 
 ## 🛠️ Technologies
 - Language: Java
