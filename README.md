@@ -4,6 +4,8 @@ This repository contains my complete journey of mastering Data Structures and Al
 It includes both **college-specific questions** and **self-practice exercises**, from beginner to advanced levels.
 
 ## 📘 Topics Covered
+- ✅ Java Basic
+- ✅ Loop in java
 - ✅ Arrays
 - ✅ Strings
 - ✅ Linked Lists
