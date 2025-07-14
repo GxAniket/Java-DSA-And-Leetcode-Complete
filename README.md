@@ -6,7 +6,9 @@ It includes both **college-specific questions** and **self-practice exercises**,
 ## 📘 Topics Covered
 - ✅ Java Basic
 - ✅ Loop in java
+- ✅ Function in java
 - ✅ Arrays
+- ✅ 2D Arrays
 - ✅ Strings
 - ✅ Linked Lists
 - ✅ Stack & Queue
