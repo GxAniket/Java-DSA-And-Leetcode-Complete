@@ -17,8 +17,6 @@ It includes both **college-specific questions** and **self-practice exercises**,
 
 ## 🏫 College-Specific Section
 Includes questions from:
-- 🏛️ Uttaranchal University assignments
-- 📚 Lab exercises
 - Apna collage - Youtube
 
 ## 🛠️ Technologies
