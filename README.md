@@ -24,5 +24,20 @@ Includes questions from:
 - Tools: VS Code, IntelliJ
 
 ---
+
+#🎯 Goals
+✅ Consistency: Solve & upload 2–5 problems daily
+✅ Understand Patterns: Focus on core DSA approaches
+✅ Interview Prep: Prepare for service-based companies (TCS, Infosys, Wipro, etc.)
+✅ Cover College Syllabus: Includes questions from Apna College & university papers
+
+🛠 Tech Stack
+Languages: Java (primary), Python (for some LeetCode problems)
+
+Tools: VS Code, IntelliJ, GitHub
+
+----
 ## ✍️ Author
 Aniket Sundriyal
+📍 Dehradun, India
+📫 sundriyalaniket@gmail.com
