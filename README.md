@@ -18,6 +18,8 @@ It includes both **college-specific questions** and **self-practice exercises**,
 ## 🏫 College-Specific Section
 Includes questions from:
 - Apna collage - Youtube
+- Uttaranchal University
+- Leetcode - question 250-260
 
 ## 🛠️ Technologies
 - Language: Java
