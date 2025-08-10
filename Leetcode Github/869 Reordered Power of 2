@@ -11,7 +11,7 @@ class Solution {
         return false;
     }
     
-    // Convert number into a "digit count signature"
+    // Convert number into  "digit count signature"
     private String countDigits(int num) {
         char[] digits = new char[10]; // counts for digits 0-9
         while (num > 0) {
