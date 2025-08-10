@@ -1,0 +1,23 @@
+class Solution {
+    public boolean reorderedPowerOf2(int n) {
+        String target = countDigits(n);
+        
+        // Test powers of 2 up to 10^9 (since n <= 10^9)
+        for (int i = 1; i <= 1_000_000_000; i <<= 1) {
+            if (target.equals(countDigits(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    // Convert number into a "digit count signature"
+    private String countDigits(int num) {
+        char[] digits = new char[10]; // counts for digits 0-9
+        while (num > 0) {
+            digits[num % 10]++;
+            num /= 10;
+        }
+        return new String(digits); // acts like a unique fingerprint
+    }
+}
