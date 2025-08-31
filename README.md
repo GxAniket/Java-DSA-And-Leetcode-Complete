@@ -16,7 +16,9 @@ It features a blend of college-specific questions and self-practice exercises, c
 - 🔜 Trees, Graphs, DP, Sorting & Searching, Hashing
 
 ## 🧪 Proof of Work
-<img width="742" height="716" alt="Screenshot 2025-08-04 212132" src="https://github.com/user-attachments/assets/170517f2-8e31-469b-ac29-65c203fcad58" />
+
+<img width="1909" height="927" alt="image" src="https://github.com/user-attachments/assets/9fe3bb5d-9245-4a7c-b5f0-88f2ef2c5ac7" />
+
 
 
 ## 🏫 College-Specific Section
