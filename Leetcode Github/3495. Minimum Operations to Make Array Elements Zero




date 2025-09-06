@@ -1,0 +1,26 @@
+class Solution {
+    public long minOperations(int[][] queries) {
+        long total = 0L;
+        for (int[] qr : queries) {
+            int l = qr[0], r = qr[1];
+            // Range [l, r]: use the getOperations trick
+            total += (getOperations(r) - getOperations(l - 1) + 1) / 2;
+        }
+        return total;
+    }
+
+    // Helper: operations needed to zero out [1..n]
+    private long getOperations(int n) {
+        if (n <= 0) return 0L;
+        long res = 0L;
+        long ops = 0L;
+        // Process in blocks of [4^k, 4^(k+1)-1]
+        for (long pow = 1; pow <= n; pow *= 4) {
+            ops++;
+            long start = pow;
+            long end = Math.min(n, pow * 4 - 1);
+            res += (end - start + 1) * ops;
+        }
+        return res;
+    }
+}
