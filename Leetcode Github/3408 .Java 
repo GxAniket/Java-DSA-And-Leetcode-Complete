@@ -1,0 +1,58 @@
+import java.util.*;
+
+class TaskManager {
+    private static class Task {
+        int userId;
+        int priority;
+        Task(int u, int p) { userId = u; priority = p; }
+    }
+
+    // max-heap by (priority desc, taskId desc)
+    private PriorityQueue<int[]> pq;
+    // taskId -> Task (latest)
+    private Map<Integer, Task> map;
+
+    public TaskManager(List<List<Integer>> tasks) {
+        pq = new PriorityQueue<>((a, b) -> {
+            if (a[0] != b[0]) return Integer.compare(b[0], a[0]); // higher priority first
+            return Integer.compare(b[1], a[1]);                  // higher taskId first
+        });
+        map = new HashMap<>();
+        if (tasks != null) {
+            for (List<Integer> t : tasks) {
+                int userId = t.get(0), taskId = t.get(1), priority = t.get(2);
+                add(userId, taskId, priority);
+            }
+        }
+    }
+
+    public void add(int userId, int taskId, int priority) {
+        map.put(taskId, new Task(userId, priority));
+        pq.offer(new int[]{priority, taskId});
+    }
+
+    public void edit(int taskId, int newPriority) {
+        Task cur = map.get(taskId);
+        if (cur == null) return;               // guaranteed to exist in problem, but safe check
+        cur.priority = newPriority;
+        pq.offer(new int[]{newPriority, taskId});
+    }
+
+    public void rmv(int taskId) {
+        map.remove(taskId);
+    }
+
+    public int execTop() {
+        while (!pq.isEmpty()) {
+            int[] top = pq.poll();
+            int pr = top[0], id = top[1];
+            Task cur = map.get(id);
+            if (cur != null && cur.priority == pr) {
+                map.remove(id);
+                return cur.userId; // return userId per problem statement
+            }
+            // stale entry — continue
+        }
+        return -1;
+    }
+}
