@@ -1,0 +1,33 @@
+public class WaterBottlesII {
+    public static int maxBottlesDrunk(int numBottles, int numExchange) {
+        int totalDrunk = numBottles;   // drink all initial bottles
+        int empty = numBottles;        // now you have all empties
+
+        while (empty >= numExchange) {
+            // exchange empties for 1 full bottle
+            empty -= numExchange;
+
+            // rate increases after each exchange
+            numExchange++;
+
+            // drink the new bottle
+            totalDrunk++;
+
+            // that bottle becomes empty
+            empty++;
+        }
+
+        return totalDrunk;
+    }
+
+    public static void main(String[] args) {
+        // Example test cases
+        int numBottles1 = 10, numExchange1 = 3;
+        int numBottles2 = 5, numExchange2 = 2;
+
+        System.out.println("Case 1 -> Max bottles drunk = " +
+                maxBottlesDrunk(numBottles1, numExchange1)); // Expected 13
+        System.out.println("Case 2 -> Max bottles drunk = " +
+                maxBottlesDrunk(numBottles2, numExchange2)); // Expected 6
+    }
+}
