@@ -1,0 +1,65 @@
+class Solution {
+    public boolean hasSameDigits(String s) {
+        int n = s.length();
+        if (n == 2) return s.charAt(0) == s.charAt(1);
+
+        int num1 = 0, num2 = 0;
+        int m = n - 2;
+
+        for (int i = 0; i + 1 < n; i++) {
+            int coeff = nCkMod10(m, i);
+            num1 = (num1 + coeff * (s.charAt(i) - '0')) % 10;
+            num2 = (num2 + coeff * (s.charAt(i + 1) - '0')) % 10;
+        }
+        return num1 == num2;
+    }
+
+    // Compute nCk % 10 using Lucas Theorem for mod 2 & mod 5 and combine using CRT
+    private int nCkMod10(int n, int k) {
+        if (k < 0 || k > n) return 0;
+        int a2 = nCkModPrime(n, k, 2);
+        int a5 = nCkModPrime(n, k, 5);
+        int x = a5;                // congruent to a5 mod 5
+        if (x % 2 != a2) x = (x + 5) % 10; // fix parity to match mod 2
+        return x;
+    }
+
+    // Compute nCk % p using Lucas theorem
+    private int nCkModPrime(int n, int k, int p) {
+        int[] fact = new int[p];
+        fact[0] = 1;
+        for (int i = 1; i < p; i++) fact[i] = (fact[i - 1] * i) % p;
+
+        int res = 1;
+        while (n > 0 || k > 0) {
+            int ni = n % p, ki = k % p;
+            if (ki > ni) return 0;
+            res = (res * nCsmallModP(ni, ki, p, fact)) % p;
+            n /= p;
+            k /= p;
+        }
+        return res;
+    }
+
+    // C(n,k) for small n,k<p
+    private int nCsmallModP(int n, int k, int p, int[] fact) {
+        int numerator = fact[n];
+        int denom = (fact[k] * fact[n - k]) % p;
+        return (numerator * modInverse(denom, p)) % p;
+    }
+
+    private int modInverse(int a, int p) {
+        return powMod(a, p - 2, p);
+    }
+
+    private int powMod(int a, int e, int mod) {
+        int res = 1;
+        a %= mod;
+        while (e > 0) {
+            if ((e & 1) == 1) res = (res * a) % mod;
+            a = (a * a) % mod;
+            e >>= 1;
+        }
+        return res;
+    }
+}
