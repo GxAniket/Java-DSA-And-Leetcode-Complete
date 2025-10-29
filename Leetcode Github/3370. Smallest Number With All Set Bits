@@ -1,0 +1,7 @@
+class Solution {
+    public int smallestNumber(int n) {
+        // bitLength = number of bits needed to represent n (>=1)
+        int bitLength = Integer.SIZE - Integer.numberOfLeadingZeros(n);
+        return (1 << bitLength) - 1;
+    }
+}
